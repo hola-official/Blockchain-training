@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.27;
 
+import "./EventDecleration.sol";
+
 contract Message {
     address public owner;
 
@@ -11,9 +13,6 @@ contract Message {
         // message = _message;
         owner = msg.sender;
     }
-
-    event messageSet(address setter, string message);
-    event OwnerShipTransfer(address previousOwner, address newOwner);
 
     function setMessage(string memory _message) public {
         require(msg.sender != address(0), "You can't set your own message");

@@ -42,14 +42,14 @@ describe("Message Test", function () {
     await message.connect(owner).transferOwnership(otherAccount);
     expect(await message.owner()).to.be.equal(otherAccount);
   });
- 
+
   it("Should say you can't transfer the ownership", async function () {
     const { message, owner, otherAccount } = await loadFixture(
       deployMessageFixture
     );
-   
-   await expect(
-     message.connect(otherAccount).transferOwnership(owner)
-   ).to.be.revertedWith("You aren't the owner");
+
+    await expect(
+      message.connect(otherAccount).transferOwnership(owner)
+    ).to.be.revertedWith("You aren't the owner");
   });
 });
